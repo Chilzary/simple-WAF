@@ -1,6 +1,6 @@
 <?php
  
-$log_file_path = '/var/www/html/waflog.txt';
+$log_file_path = '/var/log/waf.log';
 
 /**
  * [access 日志记录模块]
@@ -37,8 +37,7 @@ $malicious_patterns = [
 	"/sleep\s*\(.*?\)/i",//匹配sleep()函数
 	"/UNION.*SELECT/i",//匹配 union select
 	"/(?i)(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)/",//匹配一些常见的数据库管理操作
-	"/LOAD_FILE|OUTFILE/i",//文件注入
-	"/eval\(/i"
+	"/LOAD_FILE|OUTFILE/i"//文件注入
 ];
 
 $req_params = array_merge($_GET, $_POST, $_COOKIE);
